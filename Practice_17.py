@@ -17,3 +17,24 @@ for user in userlist: # We iterate into the list and store into user variable
         print("--------------------------------------------------------------------------------------------")
         print()
 
+exitcode= os.system("grep science etc/group") # Search for science group if found it will give zero or not than non-zero message
+if exitcode !=0: # compare the zero and non-zero so that we can or not
+    print("Group Science Doesn't exists..Adding it")
+    print("--------------------------------------------------------------------------------------------")
+    print()
+    os.system("groupadd science") # Command used to add group and we gave the name also here like science
+else:
+    print("Group already exists")
+    print("--------------------------------------------------------------------------------------------")
+    print()
+
+for user in userlist: # Again do iteration to add user to group science
+    print("Adding user {} to the science group".format(user)) # Formatting the message which user adding to which group
+    print("Adding user to group....")
+    print("--------------------------------------------------------------------------------------------")
+    os.system("usermod -G science {}".format(user)) # Command to add all find user not exists in group science
+    print("---------------------------------------------------------------------------------------------")
+    print()
+
+
+
