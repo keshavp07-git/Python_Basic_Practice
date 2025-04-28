@@ -36,5 +36,17 @@ for user in userlist: # Again do iteration to add user to group science
     print("---------------------------------------------------------------------------------------------")
     print()
 
+if os.path.isdir("/opt/science_dir"): # Checking path to add permission and ownership , Directory exists or not
+    print("Directory already exists")
+else:
+    os.mkdir("/opt/science_dir") # if not exists make directory
 
+print("Assigning Permission and Ownership to the directory")
+print("---------------------------------------------------------------------------------------------")
+print()
+
+os.system("chown :science /opt/science_dir") # Giving ownership of directory to science group
+os.system("chmod 770 /opt/science_dir") # Giving permission to the directory
+
+print("-------------------------------------Done--------------------------------------------------")
 
